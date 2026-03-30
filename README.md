@@ -179,7 +179,7 @@ IoT 개발자 파이썬 리포지토리
 
 ### 파이썬 기본 학습
 
-12. 라이브러리 사용 계속
+12. 라이브러리 사용 계속 - [소스](/day03/ex11_out_package.py)
     - 타언어의 경우 웹 검색, 다운로드, 개발위치 설치나 복사
     - CPU 아키텍처에 따라 32bit(x86), 64bit 마다 설치방법 상이
     - 파이썬은 자신만의 패키지 관리자(Package Manager : pip) 사용
@@ -203,18 +203,18 @@ IoT 개발자 파이썬 리포지토리
     
     ```
 
-    
+    - CSV 라이브러리 - [소스](/day03/ex12_csv_package.py)
 
-13. 기타 자료구조
+13. 기타 자료구조 - [소스](/day03/ex13_datastruct.py)
     - 리스트 외 튜플, 딕셔너리, 셋 등...
     - 각 자료구조 형태를 구분
 
-14. main
+14. main - [소스](/day03/ex14_main.py)
     - 파이썬은 main함수가 필요없음
     - 여러 파일 중 시작점(Entry point)을 지칭할 때는 사용
     - `__name__`  특수변수를 사용
 
-15. 가상환경(Virtual Environment)
+15. 가상환경(Virtual Environment) 
     - 프로젝트 마다 파이썬 환경을 따로 사용하기 위해 만들어진 개념
     - 프로젝트 생성 시 독립된 파이썬, 라이브러리 세트 새로 생성
     - 실제환경 C:\Program Files\Python312 와 비교
@@ -240,7 +240,7 @@ IoT 개발자 파이썬 리포지토리
 
     - 가상환경은 github에 올리지 말 것. .gitignore에 가상환경 폴더명 추가할 것
 
-16. 객체지향
+16. 객체지향 - [소스](/day03/ex15_oop.py) ~ [소스](/day03/ex18_encapsule.py)
     - C++의 객체지향, 클래스와 동일
     - C++과 달리 new 안 씀, 변수등 선언 제약사항이 많이 없음
     - 클래스 내의 모든 함수의 첫번째 파라미터는 `self`로 시작, C++의 this와 동일
@@ -248,7 +248,7 @@ IoT 개발자 파이썬 리포지토리
     - 파이썬의 철학 : `막지 말고, 알아서 지켜라`
     - public, private(__로 변수 선언), protected(_변수 선언). C++처럼 접근제한자를 많이 사용하지 않음
 
-17. 예외처리
+17. 예외처리 - [소스](/day03/ex19_exception.py)
     - 비정상 종료를 막능 기능
     - try - except ~ finally 로 구분지어서 사용 (else는 잘 사용안함)
     - except를 여러번 쓸 수 있으나, `except Exception as e` 하나로 통일해도 무방
@@ -276,7 +276,7 @@ IoT 개발자 파이썬 리포지토리
  
 
 ### 주피터 노트북
-- 주피터 노트북
+- 주피터 노트북 - [노트북](/day03/ex20_jupyter_start.ipynb)
     - 파이썬을 좀 더 인터랙티브하게 사용하고자 하는 취지
     - 논문처럼 글과 소스 실행을 병행
     - Project Jupyter
@@ -302,6 +302,26 @@ IoT 개발자 파이썬 리포지토리
     - dd : 셸 선택모드에서 셸 삭제
 
 - 사용처
-    - 웹상에서 동작하므로 많은 서비스를 지원. 속도가 느림
-    - github codespace - 기존 리포지토리와 연결 지원(무료일 경우 한달 140시간)
-    - Google colab - 구글에서 지원하는 노트북서비스
+    - 웹상에서 동작하므로 많은 서비스를 지원. 로컬 컴퓨터보다 속도가 느림
+    - [Github codespace](https://github.com/features/codespaces) - 기존 리포지토리와 연결 지원(무료일 경우 한달 140시간)
+    - [Google colab](https://colab.research.google.com/) - 구글에서 지원하는 노트북서비스. 구글드라이브와 연결. 90분 연결무료, 기능 제약적
+
+### 데이터 분석 기초
+- 분석용 기초 이론 - [노트북](/day03/ex21_dataprocess.ipynb)
+    - ~~리스트, 튜플, 딕셔너리~~
+    - 리스트 컴프리헨션
+    - 파일 입출력
+    - Numpy
+
+## 4일차
+
+### 데이터 분석 기초
+
+- 분석용 기초 이론 계속 - [노트북]()
+    - Pandas
+    - Matplotlib
+    - Seaborn
+    - Folium
+    - WordCloud
+    - 기초 통계
+    - 데이터전처리
