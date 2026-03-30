@@ -56,6 +56,7 @@ IoT 개발자 파이썬 리포지토리
     - 함수 만들기 간단
 
 - 단점
+    - 상대적으로 실행속도가 느림
     - 들여쓰기 문제 가능성(공백하나로도 문법오류)
     - 파일명 지정 시 클래스명과 동일하게 사용하면 문제발생
     - 디버그 콘솔이 여러개 실행 가능
@@ -125,7 +126,7 @@ IoT 개발자 파이썬 리포지토리
     - append ~ sort 까지 11개 함수만 학습
 
 3. 제어문 - [소스](/day01/ex03_logic_control.py)
-    - if, for
+    - if, for, while
     - switch~case 문 없음
 
 ## 2일차
@@ -166,7 +167,7 @@ IoT 개발자 파이썬 리포지토리
     - 구구단 - [소스](./day02/pr01_gugudan.py)
     - 자판기 - [소스](./day02/pr02_vending.py)
 
-11. 외부 라이브러리 사용 - [소스](./day02/ex10_builtin_lib.py)
+11. 라이브러리 사용 - [소스](./day02/ex10_builtin_lib.py)
     - 파이썬 표준 라이브러리 - 파이썬에 포함된 기본 라이브러리
     - 외부 라이브러리 - pip로 설치하는 3rd- party에서 개발된 라이브러리
     - C/C++ `include` -> python `import`
@@ -174,13 +175,85 @@ IoT 개발자 파이썬 리포지토리
     - from ~ import ~ : 클래스명만 기재
     - 라이브러리(모듈).클래스.함수() 형태로 존재
 
-12. 가상환경
+## 3일차
 
-13. 객체지향
+### 파이썬 기본 학습
 
-14. 예외처리
+12. 라이브러리 사용 계속
+    - 타언어의 경우 웹 검색, 다운로드, 개발위치 설치나 복사
+    - CPU 아키텍처에 따라 32bit(x86), 64bit 마다 설치방법 상이
+    - 파이썬은 자신만의 패키지 관리자(Package Manager : pip) 사용
+    - 웹 검색(https://pypi.org/) 후 pip 명령어로 각 파이선 개발환경에 맞춰서 설치
+    - 패키지 > 라이브러리 > 모듈
 
-15. main
+    ```bash
+    > python --version
+    python 3.12.10
+    > pip --version
+    pip 25.0.1 from C:\Program Files\Python312\Lib\site-packages\pip (python 3.12)
+    > pip install requests
+    ```
+    Successfully installed ... requests-2.33.0 urllib3-2.6.3
+    
+    > pip list
+    Package Version
+    ------- -------
+    numpy   2.4.4
+    pip     25.0.1
+    
+    ```
+
+    
+
+13. 기타 자료구조
+    - 리스트 외 튜플, 딕셔너리, 셋 등...
+    - 각 자료구조 형태를 구분
+
+14. main
+    - 파이썬은 main함수가 필요없음
+    - 여러 파일 중 시작점(Entry point)을 지칭할 때는 사용
+    - `__name__`  특수변수를 사용
+
+15. 가상환경(Virtual Environment)
+    - 프로젝트 마다 파이썬 환경을 따로 사용하기 위해 만들어진 개념
+    - 프로젝트 생성 시 독립된 파이썬, 라이브러리 세트 새로 생성
+    - 실제환경 C:\Program Files\Python312 와 비교
+    - 일반적으로 프로젝트 폴더에서 생성
+
+    - 파워셀 실행정책 변경 필요(관리자모드로)
+
+    ```bash
+    > Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+    ```
+
+    ![alt text](image-10.png)
+
+    - 가상환경 생성 후 가상환경 활성화
+
+    ```bash
+    > .\iot-venv\Scripts\Activate.ps1
+    ```
+
+    - 가상환경 생성 후 가상환경 활성화해야 함
+
+    ![alt text](image-11.png)
+
+    - 가상환경은 github에 올리지 말 것. .gitignore에 가상환경 폴더명 추가할 것
+
+16. 객체지향
+    - C++의 객체지향, 클래스와 동일
+    - C++과 달리 new 안 씀, 변수등 선언 제약사항이 많이 없음
+    - 클래스 내의 모든 함수의 첫번째 파라미터는 `self`로 시작, C++의 this와 동일
+    - 호출시에는 self를 사용 X
+    - 파이썬의 철학 : `막지 말고, 알아서 지켜라`
+    - public, private(__로 변수 선언), protected(_변수 선언). C++처럼 접근제한자를 많이 사용하지 않음
+
+17. 예외처리
+    - 비정상 종료를 막능 기능
+    - try - except ~ finally 로 구분지어서 사용 (else는 잘 사용안함)
+    - except를 여러번 쓸 수 있으나, `except Exception as e` 하나로 통일해도 무방
+    - 예외처리가 발생하면 처리속도가 늦어짐. 비정상종료를 막기위한 부분
+
 
 ### 파일 입출력
 - 인코딩
@@ -201,3 +274,29 @@ IoT 개발자 파이썬 리포지토리
     - XML을 대체하는 기술
     - 저장된 JSON파일을 사용 또는 OpenAPI 네트워크로 전달된 데이터를 사용
  
+
+### 주피터 노트북
+- 주피터 노트북
+    - 파이썬을 좀 더 인터랙티브하게 사용하고자 하는 취지
+    - 논문처럼 글과 소스 실행을 병행
+    - Project Jupyter
+    - 확장에서 Jupyter 설치
+
+- 사용법
+    - 명령팔레트(Ctrl + Shift + P)
+
+    ![alt text](image-12.png)
+
+    - Untitled-1.ipynb 파일 생성, 파일 저장 우선
+    - 커널 선택 클릭
+    - 마크다운셸(일반적 설명글), 코드셸로(소스코드 작성)로 구분
+
+    ![alt text](image-13.png)
+
+- 주피터 노트북 단축키
+    - a : 현재 셸 위에 코드셸 추가
+    - b : 현재 셸 아래에 코드셸 추가됨
+    - enter : 현재 셸 편집모드로 진입(커서 깜빡임 확인)
+    - Ctrl + enter : 마크다운셸은 빠져나오기, 코드셸을 실행
+    - l : 셸 선택모드에서 라인번호 표시 토글
+    - dd : 셸 선택모드에서 셸 삭제
